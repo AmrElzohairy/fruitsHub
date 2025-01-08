@@ -1,0 +1,1 @@
+const kHorozintalPadding = 16.0;
