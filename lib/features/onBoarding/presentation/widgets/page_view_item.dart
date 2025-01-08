@@ -3,16 +3,20 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits/core/utils/app_text_styles.dart';
 import 'package:fruits/features/auth/presentation/ui/login_view.dart';
 
+import '../../../../constants.dart';
+import '../../../../core/services/shared_preferences_singletone.dart';
+
 class PageViewItem extends StatelessWidget {
   const PageViewItem(
       {super.key,
       required this.image,
       required this.backgroundImage,
       required this.subtitle,
-      required this.title, required this.isVisible});
+      required this.title,
+      required this.isVisible});
   final String image, backgroundImage, subtitle;
   final Widget title;
-  final bool isVisible ;
+  final bool isVisible;
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +40,20 @@ class PageViewItem extends StatelessWidget {
               ),
               Visibility(
                 visible: isVisible,
-                child:  Padding(
+                child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushReplacementNamed(LoginView.routeName);
-                    },
-                    child: Text("تخطي", style: TextStyles.regular13.copyWith(color: Color(0XFF949D9E)),)),
+                      onTap: () {
+                        Prefs.setBool(kIsOnBaordingSeen, true);
+
+                        Navigator.of(context)
+                            .pushReplacementNamed(LoginView.routeName);
+                      },
+                      child: Text(
+                        "تخطي",
+                        style: TextStyles.regular13
+                            .copyWith(color: Color(0XFF949D9E)),
+                      )),
                 ),
               )
             ],
@@ -51,16 +62,16 @@ class PageViewItem extends StatelessWidget {
         const SizedBox(height: 64),
         title,
         const SizedBox(height: 24),
-
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 35),
-          child: Text(subtitle , textAlign: TextAlign.center, style: TextStyles.regular13.copyWith(
-            color: const Color(0xff4E5456),
-          ),),
+          child: Text(
+            subtitle,
+            textAlign: TextAlign.center,
+            style: TextStyles.regular13.copyWith(
+              color: const Color(0xff4E5456),
+            ),
+          ),
         ),
-        
-
-
       ],
     );
   }

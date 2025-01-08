@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits/constants.dart';
+import 'package:fruits/core/services/shared_preferences_singletone.dart';
 import 'package:fruits/core/utils/app_colors.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
 import 'package:fruits/features/onBoarding/presentation/widgets/on_boarding_page_view.dart';
@@ -23,9 +24,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
     pageController = PageController();
     pageController.addListener(() {
       currentPage = pageController.page!.round();
-      setState(() {
-        
-      });
+      setState(() {});
     });
     super.initState();
   }
@@ -47,21 +46,27 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           dotsCount: 2,
           decorator: DotsDecorator(
             activeColor: AppColors.primaryColor,
-            color:currentPage == 1 ? AppColors.primaryColor : AppColors.primaryColor.withOpacity(0.5),
+            color: currentPage == 1
+                ? AppColors.primaryColor
+                : AppColors.primaryColor.withOpacity(0.5),
           ),
         ),
         const SizedBox(height: 29),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: kHorozintalPadding),
           child: Visibility(
-            maintainAnimation: true,
-            maintainSize: true,
-            maintainState: true,
-            visible: currentPage == 0 ? false : true,
-            child: GestureDetector(
-              
-              child: CustomButton(onPressed: () { Navigator.of(context)
-                        .pushReplacementNamed(LoginView.routeName);}, text: "ابدأ الان"))),
+              maintainAnimation: true,
+              maintainSize: true,
+              maintainState: true,
+              visible: currentPage == 0 ? false : true,
+              child: GestureDetector(
+                  child: CustomButton(
+                      onPressed: () {
+                        Prefs.setBool(kIsOnBaordingSeen, true);
+                        Navigator.of(context)
+                            .pushReplacementNamed(LoginView.routeName);
+                      },
+                      text: "ابدأ الان"))),
         ),
         const SizedBox(
           height: 43,
