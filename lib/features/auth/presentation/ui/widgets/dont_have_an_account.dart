@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fruits/features/auth/presentation/ui/sign_up_view.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 
@@ -9,10 +11,10 @@ class DontHaveAnAccountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text.rich(
+    return Text.rich(
       TextSpan(
         children: [
-          TextSpan(
+          const TextSpan(
             text: "ليس لديك حساب؟ ",
             style: TextStyle(
                 fontSize: 16,
@@ -21,8 +23,12 @@ class DontHaveAnAccountWidget extends StatelessWidget {
                 height: 0.09),
           ),
           TextSpan(
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Navigator.pushNamed(context, SignUpView.routeName);
+              },
             text: "انشاء حساب",
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 16,
                 color: AppColors.primaryColor,
                 fontFamily: "cairo",
