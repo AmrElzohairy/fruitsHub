@@ -67,17 +67,23 @@ class LoginViewBody extends StatelessWidget {
             SocialLoginButton(
               image: Assets.imagesGoogleIcon,
               onPressed: () {},
-              title: "تسجيل دخول باستخدام",
+              title: "تسجيل دخول باستخدام جوجل",
+            ),
+            const SizedBox(
+              height: 16,
             ),
             SocialLoginButton(
               image: Assets.imagesAppleIcon,
               onPressed: () {},
-              title: "تسجيل دخول باستخدام",
+              title: "تسجيل دخول باستخدام ايفون",
+            ),
+            const SizedBox(
+              height: 16,
             ),
             SocialLoginButton(
               image: Assets.imagesFaceeBookIcon,
               onPressed: () {},
-              title: "تسجيل دخول باستخدام",
+              title: "تسجيل دخول باستخدام فيسبوك",
             ),
           ],
         ),
