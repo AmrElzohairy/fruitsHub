@@ -6,10 +6,12 @@ import 'package:fruits/core/utils/app_colors.dart';
 import 'package:fruits/features/splash/presentation/ui/splash_view.dart';
 import 'package:fruits/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'core/services/service_locator.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupDependencies();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

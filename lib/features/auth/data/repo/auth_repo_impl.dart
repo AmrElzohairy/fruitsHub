@@ -7,7 +7,7 @@ import 'package:fruits/features/auth/domain/entities/user_entity.dart';
 import 'package:fruits/features/auth/domain/repo/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
-  final FireBaseAuthService fireBaseAuthService;
+  final FirebaseAuthService fireBaseAuthService;
 
   AuthRepoImpl(this.fireBaseAuthService);
   @override
