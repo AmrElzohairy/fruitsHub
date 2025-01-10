@@ -18,6 +18,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, name;
+  late bool isTermsAccepted = false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -60,7 +61,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 16,
               ),
               TermsAndConditionsWidget(
-                onChanged: (value) {},
+                onChanged: (value) {
+                  isTermsAccepted = value;
+                },
               ),
               const SizedBox(
                 height: 16,
@@ -70,9 +73,18 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context
-                        .read<SignupCubit>()
-                        .createUserWithEmailAndPassword(email, password, name);
+                    if (isTermsAccepted) {
+                      context
+                          .read<SignupCubit>()
+                          .createUserWithEmailAndPassword(
+                              email, password, name);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("يجب الموافقة على الشروط والاحكام"),
+                        ),
+                      );
+                    }
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
