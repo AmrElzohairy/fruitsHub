@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruits/core/helper_functions/on_generate_route.dart';
+import 'package:fruits/core/services/custom_bloc_observer.dart';
 import 'package:fruits/core/services/shared_preferences_singletone.dart';
 import 'package:fruits/core/utils/app_colors.dart';
 import 'package:fruits/features/splash/presentation/ui/splash_view.dart';
@@ -12,6 +14,7 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupDependencies();
+  Bloc.observer = CustomBlocObserver();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
