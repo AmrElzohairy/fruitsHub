@@ -4,6 +4,7 @@ import 'package:fruits/core/widgets/custom_text_form_feild.dart';
 import 'package:fruits/features/auth/presentation/logic/cubit/signup_cubit.dart';
 import 'package:fruits/features/auth/presentation/ui/widgets/have_an_account.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../core/widgets/password_field.dart';
 import 'terms_an_conditions.dart';
 
 class SignUpViewBody extends StatefulWidget {
@@ -50,17 +51,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              PasswordField(
                 onSaved: (value) {
                   password = value!;
                 },
-                hintText: "كلمة المرور",
-                textInputType: TextInputType.visiblePassword,
-                obscureText: true,
-                suffixIcon: const Icon(
-                  Icons.remove_red_eye,
-                  color: Color(0xffC9CECF),
-                ),
               ),
               const SizedBox(
                 height: 16,
@@ -79,7 +73,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     context
                         .read<SignupCubit>()
                         .createUserWithEmailAndPassword(email, password, name);
-                  }else {
+                  } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
                     });
