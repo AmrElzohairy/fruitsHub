@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/utils/app_colors.dart';
@@ -71,12 +73,16 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 33,
               ),
-              CustomButton(onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                  context.read<SigninCubit>().signInWithEmailAndPassword(email, password);
-                }
-              }, text: "تسجيل دخول"),
+              CustomButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      context
+                          .read<SigninCubit>()
+                          .signInWithEmailAndPassword(email, password);
+                    }
+                  },
+                  text: "تسجيل دخول"),
               const SizedBox(
                 height: 33,
               ),
@@ -98,14 +104,20 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              SocialLoginButton(
-                image: Assets.imagesAppleIcon,
-                onPressed: () {},
-                title: "تسجيل دخول باستخدام ايفون",
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+              Platform.isIOS
+                  ? Column(
+                      children: [
+                        SocialLoginButton(
+                          image: Assets.imagesAppleIcon,
+                          onPressed: () {},
+                          title: "تسجيل دخول باستخدام ايفون",
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    )
+                  : const SizedBox(),
               SocialLoginButton(
                 image: Assets.imagesFaceeBookIcon,
                 onPressed: () {
