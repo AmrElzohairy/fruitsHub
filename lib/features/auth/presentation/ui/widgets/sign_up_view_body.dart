@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/widgets/custom_text_form_feild.dart';
-import 'package:fruits/features/auth/presentation/logic/cubit/signup_cubit.dart';
+import 'package:fruits/features/auth/presentation/logic/signUp_cubit/signup_cubit.dart';
 import 'package:fruits/features/auth/presentation/ui/widgets/have_an_account.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/password_field.dart';

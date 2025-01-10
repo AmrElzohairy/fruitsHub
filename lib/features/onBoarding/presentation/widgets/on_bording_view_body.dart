@@ -6,7 +6,7 @@ import 'package:fruits/core/utils/app_colors.dart';
 import 'package:fruits/core/widgets/custom_button.dart';
 import 'package:fruits/features/onBoarding/presentation/widgets/on_boarding_page_view.dart';
 
-import '../../../auth/presentation/ui/login_view.dart';
+import '../../../auth/presentation/ui/sign_in_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
@@ -64,7 +64,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       onPressed: () {
                         Prefs.setBool(kIsOnBaordingSeen, true);
                         Navigator.of(context)
-                            .pushReplacementNamed(LoginView.routeName);
+                            .pushReplacementNamed(SigninView.routeName);
                       },
                       text: "ابدأ الان"))),
         ),

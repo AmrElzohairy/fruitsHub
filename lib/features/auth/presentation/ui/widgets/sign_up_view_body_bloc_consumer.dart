@@ -4,7 +4,7 @@ import 'package:fruits/features/auth/presentation/ui/widgets/sign_up_view_body.d
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../../core/helper_functions/build_error_messgae.dart';
-import '../../logic/cubit/signup_cubit.dart';
+import '../../logic/signUp_cubit/signup_cubit.dart';
 
 class SignUpViewBodyBlocConsumer extends StatelessWidget {
   const SignUpViewBodyBlocConsumer({

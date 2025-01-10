@@ -30,7 +30,7 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<Failures, UserEntity>> signInWithEmailAndPassword(
-      String email, String password, String name) async {
+      String email, String password) async {
     try {
       var user = await fireBaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);

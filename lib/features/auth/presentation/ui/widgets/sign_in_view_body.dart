@@ -9,8 +9,8 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_text_form_feild.dart';
 import 'social_login_button.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class SigninViewBody extends StatelessWidget {
+  const SigninViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

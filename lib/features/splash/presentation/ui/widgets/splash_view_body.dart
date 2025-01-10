@@ -4,7 +4,7 @@ import 'package:fruits/core/utils/app_images.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/services/shared_preferences_singletone.dart';
-import '../../../../auth/presentation/ui/login_view.dart';
+import '../../../../auth/presentation/ui/sign_in_view.dart';
 import '../../../../onBoarding/presentation/onboarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -49,7 +49,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       // ignore: use_build_context_synchronously
       if (isOnBaordingSeen) {
         // ignore: use_build_context_synchronously
-        Navigator.pushReplacementNamed(context, LoginView.routeName);
+        Navigator.pushReplacementNamed(context, SigninView.routeName);
       } else {
         // ignore: use_build_context_synchronously
         Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
