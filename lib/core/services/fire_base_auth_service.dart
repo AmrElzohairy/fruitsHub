@@ -54,7 +54,11 @@ class FirebaseAuthService {
       } else if (e.code == 'wrong-password') {
         throw CustomException(
             message: 'البريد الالكتروني او كلمه المرور غير صحيحه');
-      } else if (e.code == 'network-request-failed') {
+      }else if (e.code == 'invalid-credential') {
+        throw CustomException(
+            message: 'البريد الالكتروني او كلمه المرور غير صحيحه');
+      } 
+      else if (e.code == 'network-request-failed') {
         throw CustomException(message: 'لا يوجد اتصال بالانترنت');
       } else {
         throw CustomException(
