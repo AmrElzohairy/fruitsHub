@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits/core/errors/custom_exceptions.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService {
   Future<User> createUserWithEmailAndPassword(
@@ -47,9 +48,11 @@ class FirebaseAuthService {
       log("Error occured in FirebaseAuthService.signInWithEmailAndPassword :${e.toString()} , and code : ${e.code}");
 
       if (e.code == 'user-not-found') {
-        throw CustomException(message: 'البريد الالكتروني او كلمه المرور غير صحيحه');
+        throw CustomException(
+            message: 'البريد الالكتروني او كلمه المرور غير صحيحه');
       } else if (e.code == 'wrong-password') {
-        throw CustomException(message: 'البريد الالكتروني او كلمه المرور غير صحيحه');
+        throw CustomException(
+            message: 'البريد الالكتروني او كلمه المرور غير صحيحه');
       } else if (e.code == 'network-request-failed') {
         throw CustomException(message: 'لا يوجد اتصال بالانترنت');
       } else {
@@ -61,5 +64,19 @@ class FirebaseAuthService {
 
       throw CustomException(message: "حدث خطأ ما , يرجى المحاوله في وقت لاحق");
     }
+  }
+
+  Future<User> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
   }
 }
