@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits/core/services/service_locator.dart';
 import 'package:fruits/features/auth/presentation/logic/signIn_cubit/signin_cubit.dart';
-import 'package:fruits/features/auth/presentation/ui/widgets/sign_in_view_body.dart';
+import 'package:fruits/features/auth/presentation/ui/widgets/sign_in_view_body_bloc_consumer.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
-import '../../data/repo/auth_repo_impl.dart';
+import '../../domain/repo/auth_repo.dart';
 
 class SigninView extends StatelessWidget {
   const SigninView({super.key});
@@ -14,11 +14,12 @@ class SigninView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SigninCubit(getIt<AuthRepoImpl>()),
+      create: (context) => SigninCubit(getIt<AuthRepo>()),
       child: Scaffold(
         appBar: buildAppBar(context, 'تسجيل دخول'),
-        body: const SigninViewBody(),
+        body: const SigninViewBodyBlocConsumer(),
       ),
     );
   }
 }
+
