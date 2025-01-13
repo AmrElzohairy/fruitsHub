@@ -13,12 +13,14 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setupDependencies();
+
   Bloc.observer = CustomBlocObserver();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await Prefs.init();
+  setupDependencies();
+
   runApp(const FruitHub());
 }
 
