@@ -15,7 +15,9 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
-        if (state is SignupSuccess) {}
+        if (state is SignupSuccess) {
+          Navigator.pop(context);
+        }
         if (state is SignupFailure) {
           buildErrorMessage(context, state.message);
         }
