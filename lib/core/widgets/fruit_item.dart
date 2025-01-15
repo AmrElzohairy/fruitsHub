@@ -60,9 +60,9 @@ class FruitItem extends StatelessWidget {
                   ),
                   textAlign: TextAlign.right,
                 ),
-                trailing: CircleAvatar(
+                trailing: const CircleAvatar(
                   backgroundColor: AppColors.primaryColor,
-                  child: const Icon(
+                  child: Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
