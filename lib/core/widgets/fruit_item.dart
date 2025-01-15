@@ -18,58 +18,59 @@ class FruitItem extends StatelessWidget {
         children: [
           const Positioned(child: Icon(Icons.favorite_border)),
           Positioned.fill(
-              child: Column(
-            children: [
-              Image.asset(Assets.imagesFeturedImageTest),
-              const SizedBox(
-                height: 24,
-              ),
-              ListTile(
-                title: const Text(
-                  "بطيخ",
-                  style: TextStyles.semiBold13,
+            child: Column(
+              children: [
+                Image.asset(Assets.imagesFeturedImageTest),
+                const SizedBox(
+                  height: 24,
                 ),
-                subtitle: Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: '20جنية',
-                        style: TextStyles.bold13.copyWith(
-                          color: AppColors.secondaryColor,
-                        ),
-                      ),
-                      TextSpan(
-                        text: '/',
-                        style: TextStyles.bold13.copyWith(
-                          color: AppColors.lightSecondaryColor,
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' ',
-                        style: TextStyles.semiBold13.copyWith(
-                          color: AppColors.secondaryColor,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'كيلو',
-                        style: TextStyles.semiBold13.copyWith(
-                          color: AppColors.lightSecondaryColor,
-                        ),
-                      ),
-                    ],
+                ListTile(
+                  title: const Text(
+                    "بطيخ",
+                    style: TextStyles.semiBold13,
                   ),
-                  textAlign: TextAlign.right,
-                ),
-                trailing: const CircleAvatar(
-                  backgroundColor: AppColors.primaryColor,
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.white,
+                  subtitle: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '20جنية',
+                          style: TextStyles.bold13.copyWith(
+                            color: AppColors.secondaryColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: '/',
+                          style: TextStyles.bold13.copyWith(
+                            color: AppColors.lightSecondaryColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' ',
+                          style: TextStyles.semiBold13.copyWith(
+                            color: AppColors.secondaryColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'كيلو',
+                          style: TextStyles.semiBold13.copyWith(
+                            color: AppColors.lightSecondaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.right,
+                  ),
+                  trailing: const CircleAvatar(
+                    backgroundColor: AppColors.primaryColor,
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),)
+              ],
+            ),
+          ),
         ],
       ),
     );

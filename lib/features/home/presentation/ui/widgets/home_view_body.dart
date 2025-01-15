@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fruits/constants.dart';
 import 'package:fruits/core/widgets/search_text_field.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/best_seller_head.dart';
+import 'package:fruits/features/home/presentation/ui/widgets/best_selling_grid_view.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/custom_home_appbar.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/featured_list.dart';
-
-import '../../../../../core/widgets/fruit_item.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -38,10 +37,10 @@ class HomeViewBody extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                FruitItem(),
               ],
             ),
-          )
+          ),
+          BestSellingGridView(),
         ],
       ),
     );
