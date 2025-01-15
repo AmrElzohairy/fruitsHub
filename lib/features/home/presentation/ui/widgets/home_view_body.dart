@@ -3,6 +3,8 @@ import 'package:fruits/constants.dart';
 import 'package:fruits/core/widgets/search_text_field.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/custom_home_appbar.dart';
 
+import 'featured_item.dart';
+
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
@@ -22,6 +24,10 @@ class HomeViewBody extends StatelessWidget {
                   height: 16,
                 ),
                 SearchTextField(),
+                SizedBox(
+                  height: 16,
+                ),
+                FeaturedItem(),
               ],
             ),
           )

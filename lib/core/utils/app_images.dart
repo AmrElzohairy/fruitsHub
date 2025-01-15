@@ -18,6 +18,14 @@ class Assets {
   /// assets/images/FaceeBookIcon.svg
   static const String imagesFaceeBookIcon = "assets/images/FaceeBookIcon.svg";
 
+  /// Assets for imagesFeaturedItemBackGround
+  /// assets/images/featured_item_back_ground.svg
+  static const String imagesFeaturedItemBackGround = "assets/images/featured_item_back_ground.svg";
+
+  /// Assets for imagesFeturedImageTest
+  /// assets/images/fetured_image_test.png
+  static const String imagesFeturedImageTest = "assets/images/fetured_image_test.png";
+
   /// Assets for imagesFilter
   /// assets/images/filter.svg
   static const String imagesFilter = "assets/images/filter.svg";
