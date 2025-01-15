@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits/constants.dart';
 import 'package:fruits/core/widgets/search_text_field.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/custom_home_appbar.dart';
-
-import 'featured_item.dart';
+import 'package:fruits/features/home/presentation/ui/widgets/featured_list.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -18,7 +17,8 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: kTopPadding,),
+                  height: kTopPadding,
+                ),
                 CustomHomeAppbar(),
                 SizedBox(
                   height: 16,
@@ -27,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
                 SizedBox(
                   height: 16,
                 ),
-                FeaturedItem(),
+                FeaturedList(),
               ],
             ),
           )
