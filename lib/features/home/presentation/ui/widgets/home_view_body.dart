@@ -5,6 +5,8 @@ import 'package:fruits/features/home/presentation/ui/widgets/best_seller_head.da
 import 'package:fruits/features/home/presentation/ui/widgets/custom_home_appbar.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/featured_list.dart';
 
+import '../../../../../core/widgets/fruit_item.dart';
+
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
@@ -33,6 +35,10 @@ class HomeViewBody extends StatelessWidget {
                   height: 12,
                 ),
                 BestSellerHead(),
+                SizedBox(
+                  height: 8,
+                ),
+                FruitItem(),
               ],
             ),
           )
