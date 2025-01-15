@@ -1,4 +1,8 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../../../core/utils/app_images.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({super.key});
@@ -8,8 +12,9 @@ class CustomNavigationBar extends StatelessWidget {
     return Container(
       width: 375,
       height: 70,
+      child: InActiveItem(iconImage: Assets.imagesVuesaxOutlineHome),
       decoration: const ShapeDecoration(
-        color: Color.fromARGB(255, 37, 36, 36),
+        color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
@@ -26,5 +31,18 @@ class CustomNavigationBar extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class InActiveItem extends StatelessWidget {
+  const InActiveItem({
+    super.key,
+    required this.iconImage,
+  });
+  final String iconImage;
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(iconImage);
   }
 }

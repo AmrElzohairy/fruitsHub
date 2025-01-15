@@ -73,5 +73,37 @@ class Assets {
   /// Assets for imagesSplashBottom
   /// assets/images/splashBottom.svg
   static const String imagesSplashBottom = "assets/images/splashBottom.svg";
+
+  /// Assets for imagesVuesaxBoldHome
+  /// assets/images/vuesax/bold/home.svg
+  static const String imagesVuesaxBoldHome = "assets/images/vuesax/bold/home.svg";
+
+  /// Assets for imagesVuesaxBoldProduct
+  /// assets/images/vuesax/bold/product.svg
+  static const String imagesVuesaxBoldProduct = "assets/images/vuesax/bold/product.svg";
+
+  /// Assets for imagesVuesaxBoldShoppingCart
+  /// assets/images/vuesax/bold/shopping-cart.svg
+  static const String imagesVuesaxBoldShoppingCart = "assets/images/vuesax/bold/shopping-cart.svg";
+
+  /// Assets for imagesVuesaxBoldUser
+  /// assets/images/vuesax/bold/user.svg
+  static const String imagesVuesaxBoldUser = "assets/images/vuesax/bold/user.svg";
+
+  /// Assets for imagesVuesaxOutlineHome
+  /// assets/images/vuesax/outline/home.svg
+  static const String imagesVuesaxOutlineHome = "assets/images/vuesax/outline/home.svg";
+
+  /// Assets for imagesVuesaxOutlineProduct
+  /// assets/images/vuesax/outline/product.svg
+  static const String imagesVuesaxOutlineProduct = "assets/images/vuesax/outline/product.svg";
+
+  /// Assets for imagesVuesaxOutlineShoppingCart
+  /// assets/images/vuesax/outline/shopping-cart.svg
+  static const String imagesVuesaxOutlineShoppingCart = "assets/images/vuesax/outline/shopping-cart.svg";
+
+  /// Assets for imagesVuesaxOutlineUser
+  /// assets/images/vuesax/outline/user.svg
+  static const String imagesVuesaxOutlineUser = "assets/images/vuesax/outline/user.svg";
 }
 
