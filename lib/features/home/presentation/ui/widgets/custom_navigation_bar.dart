@@ -46,3 +46,32 @@ class InActiveItem extends StatelessWidget {
     return SvgPicture.asset(iconImage);
   }
 }
+
+class ActiveItem extends StatelessWidget {
+  const ActiveItem({
+    super.key,
+    required this.iconImage,
+  });
+  final String iconImage;
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(iconImage);
+  }
+}
+
+class NavigationBarItem extends StatelessWidget {
+  const NavigationBarItem({
+    super.key,
+    required this.iconImage,
+    required this.isActive,
+  });
+  final String iconImage;
+  final bool isActive;
+  @override
+  Widget build(BuildContext context) {
+    return isActive
+        ? ActiveItem(iconImage: iconImage)
+        : InActiveItem(iconImage: iconImage);
+  }
+}
