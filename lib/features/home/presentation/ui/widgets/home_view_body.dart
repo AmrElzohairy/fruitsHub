@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits/constants.dart';
 import 'package:fruits/core/widgets/search_text_field.dart';
+import 'package:fruits/features/home/presentation/ui/widgets/best_seller_head.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/custom_home_appbar.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/featured_list.dart';
 
@@ -28,6 +29,10 @@ class HomeViewBody extends StatelessWidget {
                   height: 16,
                 ),
                 FeaturedList(),
+                SizedBox(
+                  height: 12,
+                ),
+                BestSellerHead(),
               ],
             ),
           )
