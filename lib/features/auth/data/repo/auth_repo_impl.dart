@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -6,6 +7,7 @@ import 'package:fruits/core/errors/custom_exceptions.dart';
 import 'package:fruits/core/errors/failures.dart';
 import 'package:fruits/core/services/data_base_services.dart';
 import 'package:fruits/core/services/fire_base_auth_service.dart';
+import 'package:fruits/core/services/shared_preferences_singletone.dart';
 import 'package:fruits/core/utils/back_end_endpoints.dart';
 import 'package:fruits/features/auth/data/models/user_model.dart';
 import 'package:fruits/features/auth/domain/entities/user_entity.dart';
@@ -73,10 +75,11 @@ class AuthRepoImpl implements AuthRepo {
     try {
       user = await fireBaseAuthService.signInWithGoogle();
       var userEntity = UserModel.fromFireBaseUser(user);
-      var isUserExist = await dataBaseAuthService.checkDataExist(documentId: user.uid , path: BackEndEndpoints.isUserExist);
-      if(isUserExist){
+      var isUserExist = await dataBaseAuthService.checkDataExist(
+          documentId: user.uid, path: BackEndEndpoints.isUserExist);
+      if (isUserExist) {
         await getUseData(uid: user.uid);
-      }else{
+      } else {
         await addUserData(user: userEntity);
       }
       return right(UserModel.fromFireBaseUser(user));
@@ -114,7 +117,7 @@ class AuthRepoImpl implements AuthRepo {
   Future addUserData({required UserEntity user}) async {
     await dataBaseAuthService.addData(
         path: BackEndEndpoints.addUserData,
-        data: user.toMap(),
+        data: UserModel.fromUserEntity(user).toMap(),
         documentId: user.uId);
   }
 
@@ -123,5 +126,11 @@ class AuthRepoImpl implements AuthRepo {
     var usedata = await dataBaseAuthService.getData(
         path: BackEndEndpoints.getUserData, documentId: uid);
     return UserModel.fromJson(usedata);
+  }
+
+  @override
+  Future saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(UserModel.fromUserEntity(user).toMap());
+    await Prefs.setString(BackEndEndpoints.kUser, jsonData);
   }
 }
