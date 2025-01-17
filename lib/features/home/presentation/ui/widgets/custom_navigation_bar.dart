@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:fruits/features/home/domain/entities/buttom_nav_bar_entity.dart';
 import 'package:fruits/features/home/presentation/ui/widgets/nav_bar_item.dart';
 
-class CustomNavigationBar extends StatelessWidget {
+class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
 
+  @override
+  State<CustomNavigationBar> createState() => _CustomNavigationBarState();
+}
+
+class _CustomNavigationBarState extends State<CustomNavigationBar> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,11 +35,13 @@ class CustomNavigationBar extends StatelessWidget {
       ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: bottomNavItems.map((e) {
+          children: bottomNavItems.asMap().entries.map((e) {
+            var index = e.key;
+            var entry = e.value;
             return NavigationBarItem(
-              isActive: false,
-              iconImage: e.inActiveIcon,
-              buttomNavBarEntity: e,
+              buttomNavBarEntity: entry,              
+              isSelected: selectedIndex == index,
+        
             );
           }).toList()),
     );
