@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits/core/utils/app_images.dart';
+import 'package:fruits/features/home/presentation/ui/home_view.dart';
 
 import '../../../../../constants.dart';
+import '../../../../../core/services/fire_base_auth_service.dart';
 import '../../../../../core/services/shared_preferences_singletone.dart';
 import '../../../../auth/presentation/ui/sign_in_view.dart';
 import '../../../../onBoarding/presentation/onboarding_view.dart';
@@ -45,14 +47,23 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void excuteNavigation() {
     bool isOnBaordingSeen = Prefs.getBool(kIsOnBaordingSeen);
 
-    Future.delayed(const Duration(seconds: 3), () {
-      // ignore: use_build_context_synchronously
+    Future.delayed(const Duration(seconds: 3), () async {
+      if (!mounted) return;
       if (isOnBaordingSeen) {
-        // ignore: use_build_context_synchronously
-        Navigator.pushReplacementNamed(context, SigninView.routeName);
+        var isLoggedIn = FirebaseAuthService().isSignedIn();
+        if (isLoggedIn) {
+          if (mounted) {
+            Navigator.pushReplacementNamed(context, HomeView.routeName);
+          }
+        } else {
+          if (mounted) {
+            Navigator.pushReplacementNamed(context, SigninView.routeName);
+          }
+        }
       } else {
-        // ignore: use_build_context_synchronously
-        Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+        if (mounted) {
+          Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+        }
       }
     });
   }
