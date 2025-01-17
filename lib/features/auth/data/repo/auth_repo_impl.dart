@@ -59,6 +59,7 @@ class AuthRepoImpl implements AuthRepo {
       var user = await fireBaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
       var useEntity = await getUseData(uid: user.uid);
+      await saveUserData(user: useEntity);
       return right(useEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
