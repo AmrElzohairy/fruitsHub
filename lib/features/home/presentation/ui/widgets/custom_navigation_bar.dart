@@ -38,10 +38,20 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           children: bottomNavItems.asMap().entries.map((e) {
             var index = e.key;
             var entry = e.value;
-            return NavigationBarItem(
-              buttomNavBarEntity: entry,              
-              isSelected: selectedIndex == index,
-        
+            return Expanded(
+              flex: index == selectedIndex ? 3 : 2,
+              child: GestureDetector(
+                onTap:() {
+                  setState(() {
+                    selectedIndex = index;
+                  });
+                },
+                child: NavigationBarItem(
+                  buttomNavBarEntity: entry,              
+                  isSelected: selectedIndex == index,
+                        
+                ),
+              ),
             );
           }).toList()),
     );
